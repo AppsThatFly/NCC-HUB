@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+       xmlns:local="clr-namespace:NCCHub"
+       RouteHost="companyname.com"
+       RouteScheme="app"
+       Route="NCCHub"
+       FlyoutBehavior="Flyout"
+       FlyoutHeaderBehavior="CollapseOnScroll"
+       Title="NCCHub"
+       x:Class="NCCHub.AppShell">
+
+    <!-- 
+        Styles and Resources 
+    
+    -->
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Color x:Key="NavigationPrimary">#2196F3</Color>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.ShellBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="Shell.ShellForegroundColor" Value="White" />
+                <Setter Property="Shell.ShellTitleColor" Value="White" />
+                <Setter Property="Shell.ShellDisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.ShellUnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.ShellTabBarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="Shell.ShellTabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.ShellTabBarUnselectedColor" Value="#95FFFFFF"/>
+                <Setter Property="Shell.ShellTabBarTitleColor" Value="White"/>
+            </Style>
+            <Style TargetType="ShellItem" BasedOn="{StaticResource BaseStyle}" />
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <!-- Header -->
+    <Shell.FlyoutHeader>
+        <Grid HeightRequest="200">
+            <Image Source="{local:ImageResource NCCHub.Images.ncchub_logo.jpg}"
+                   Aspect="AspectFill"
+                   HeightRequest="200"
+                   HorizontalOptions="FillAndExpand" />
+            <Label Text="NCC-Hub"
+                   TextColor="White"
+                   FontSize="48"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center" />
+        </Grid>
+    </Shell.FlyoutHeader>
+
+
+    <!-- Pages -->
+    <ShellItem Route="main"
+               Title="Home">
+        <ShellSection>
+            <ShellContent Title="NCC-Hub Home"
+                          ContentTemplate="{DataTemplate local:MainPage}" />
+        </ShellSection>
+    </ShellItem>
+    <ShellItem Route="safety"
+               Title="Safety">
+        <ShellSection>
+            <ShellContent Title="Safety"
+                          ContentTemplate="{DataTemplate local:SafetyPage}" />
+        </ShellSection>
+    </ShellItem>
+</Shell>
